@@ -88,6 +88,10 @@ The solution architecture consists of the following key elements:
 
 - **Flexibility and scalability**: While this reference architecture depicts a 3-staged model, organizations can adapt it to their specific needs. Additional stages (e.g., Quality Assurance, Sandbox, Pre-Production) can be added, or subaccounts can be consolidated based on organizational requirements and governance policies. The model supports both public cloud and private cloud SAP deployments.
 
+## LoB Specific Considerations
+
+- **SAP SuccessFactors**: SAP SuccessFactors is owning an own identifier for a person, the Person UID, required for Embedded Analytics. This UID has an independent lifecycle than the Global User UID, which is owned by the SAP Cloud Identity Services. Connecting multiple instances of SAP SuccessFactors with a single instance of SAP Cloud Identity Services may lead to conflicts when synchronizing the identities from SAP SuccessFactors to SAP Cloud Identity Services. There are different possibilities to avoid such conflicts, for example by using different user accounts in different instances of SAP Success Factors, while authentication via Global User UID can allow single sign on even with different mail addresses in the different instances of SAP Success Factors.
+
 ## Examples in an SAP context
 
 - **SAP S/4HANA Cloud Private Edition**: Organizations running SAP S/4HANA Cloud Private Edition can use this staged model to develop and test Joule skills that interact with their ERP system, ensuring that custom automations and integrations are validated before production deployment.
